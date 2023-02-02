@@ -1,3 +1,3 @@
-def call() {
-    sh 'Hello world'
+def call(String str) {
+    echo "${str}"
 }
