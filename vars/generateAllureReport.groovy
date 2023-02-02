@@ -3,7 +3,7 @@ def generateAllure() {
         steps {
             script {
                 allure([
-                        includeProperties: false,
+                        includeProperties: true,
                         jdk: '',
                         properties: [],
                         reportBuildPolicy: 'ALWAYS',
