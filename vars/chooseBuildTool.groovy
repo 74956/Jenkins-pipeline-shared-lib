@@ -1,3 +1,3 @@
 def call(Map config = [:]) {
-    sh "${type} ${name}"
+    sh "${config.type} ${config.name}"
 }
