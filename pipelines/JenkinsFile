@@ -29,9 +29,4 @@ EMAIL_ADDRESS = "aq@gamil.com"
             printEmailMsg("${env.EMAIL_ADDRESS}")
          }
     }
-    post {
-        always {
-              cleanWsAfterBuild()
-              }
-         }
-    }
+}
