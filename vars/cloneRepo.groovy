@@ -1,3 +1,3 @@
-def call(String str) {
-    git "clone repository from ${str} address"
+def call(String gitUrl) {
+    git "clone repository from ${gitUrl} address"
 }
