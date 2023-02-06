@@ -1,5 +1,9 @@
 @Library("shared-lib") _
 pipeline {
+
+GIT_URL = "https://github.com/74956/Repo4.git"
+EMAIL_ADDRESS = "aq@gamil.com"
+    
     agent any
 
     tools {
@@ -8,13 +12,22 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                runAllTestsWithMaven("https://github.com/74956/Repo4.git")
+                cleanWs()
+                cloneRepo($GIT_URL)
             }
         }
-        stage('Email') {
+        stage('Test') {
             steps {
-                printEmailMsg("aq@gmail.com")
+                runAllTestsWithMaven()
             }
         }
+    }
+    post {
+        failure {
+            printEmailMsg($EMAIL_ADDRESS)
+         }
+    }
+    post {
+        cleanWsAfterBuild()
     }
 }
