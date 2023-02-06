@@ -1,4 +1,3 @@
-def call(String str) {
-    git "${str}"
+def call() {
     sh "mvn -Dmaven.test.failure.ignore=true clean package"
 }
