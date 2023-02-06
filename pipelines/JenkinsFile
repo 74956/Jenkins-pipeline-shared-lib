@@ -1,0 +1,20 @@
+@Library("shared-lib") _
+pipeline {
+    agent any
+
+    tools {
+        maven "jenkins maven"
+    }
+    stages {
+        stage('Build') {
+            steps {
+                runAllTestsWithMaven("https://github.com/74956/Repo4.git")
+            }
+        }
+        stage('Email') {
+            steps {
+                printEmailMsg("aq@gmail.com")
+            }
+        }
+    }
+}
