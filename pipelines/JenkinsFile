@@ -28,6 +28,8 @@ EMAIL_ADDRESS = "aq@gamil.com"
          }
     }
     post {
-        cleanWsAfterBuild()
+        always {
+              cleanWsAfterBuild()
+              }
+         }
     }
-}
