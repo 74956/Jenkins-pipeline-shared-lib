@@ -13,7 +13,7 @@ EMAIL_ADDRESS = "aq@gamil.com"
         stage('Build') {
             steps {
                 cleanWs()
-                cloneRepo(${GIT_URL})
+                cloneRepo("${GIT_URL}")
             }
         }
         stage('Test') {
@@ -24,7 +24,7 @@ EMAIL_ADDRESS = "aq@gamil.com"
     }
     post {
         failure {
-            printEmailMsg(${EMAIL_ADDRESS})
+            printEmailMsg("${EMAIL_ADDRESS}")
          }
     }
     post {
