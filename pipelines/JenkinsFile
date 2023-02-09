@@ -1,10 +1,9 @@
 @Library("shared-lib") _
-pipeline {
 
-environment {
-GIT_URL = "https://github.com/74956/Repo4.git"
-EMAIL_ADDRESS = "aq@gamil.com"
-}
+GIT_URL="https://github.com/74956/Repo4.git"
+EMAIL_ADDRESS="aq@gmail.com"
+
+pipeline {
     
     agent any
 
@@ -15,7 +14,7 @@ EMAIL_ADDRESS = "aq@gamil.com"
         stage('Build') {
             steps {
                 cleanWs()
-                cloneRepo("${env.GIT_URL}")
+                cloneRepo(GIT_URL)
             }
         }
         stage('Test') {
@@ -26,7 +25,7 @@ EMAIL_ADDRESS = "aq@gamil.com"
     }
     post {
         failure {
-            printEmailMsg("${env.EMAIL_ADDRESS}")
+            printEmailMsg(EMAIL_ADDRESS)
          }
     }
 }
